@@ -82,7 +82,7 @@ async function cloneEnvironments(
       const envResponse = await axios.get(envUrl, { headers: headersAccount1 });
       const envData = envResponse.data.environment;
 
-      // Удаляем ID/UID перед созданием
+      // Delete ID/UID
       delete envData.id;
       delete envData.uid;
 
