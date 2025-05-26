@@ -11,19 +11,33 @@ const allCollections = document.getElementById('all-collections');
 
 allCollections.addEventListener('submit', async event => {
   event.preventDefault();
+
+  const cloneButton = allCollections.querySelector('.partner-fund-btn');
+  const loader = allCollections.querySelector('.loader');
+
+  loader.style.display = 'block';
+  cloneButton.disabled = true;
+  cloneButton.classList.add('disabled');
+
   // Считываем данные с формы
   const apiKeyFrom = document.getElementById('apiKeyFromAll').value.trim();
   const apiKeyTo = document.getElementById('apiKeyToAll').value.trim();
   const sourceWorkspaceId = document.getElementById('wpIdFromAll').value.trim();
   const targetWorkspaceId = document.getElementById('wpIdToAll').value.trim();
 
-  await cloneCollections(
-    apiKeyFrom,
-    apiKeyTo,
-    sourceWorkspaceId,
-    targetWorkspaceId
-  );
-  allCollections.reset();
+  try {
+    await cloneCollections(
+      apiKeyFrom,
+      apiKeyTo,
+      sourceWorkspaceId,
+      targetWorkspaceId
+    );
+    allCollections.reset();
+  } finally {
+    loader.style.display = 'none';
+    cloneButton.disabled = false;
+    cloneButton.classList.remove('disabled');
+  }
 });
 
 async function getCollections(workspaceId, headers) {

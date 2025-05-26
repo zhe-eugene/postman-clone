@@ -11,20 +11,33 @@ const environmentСlone = document.getElementById('environment-clone');
 
 environmentСlone.addEventListener('submit', async event => {
   event.preventDefault();
+
+  const cloneButton = environmentСlone.querySelector('.partner-fund-btn');
+  const loader = environmentСlone.querySelector('.loader');
+
+  loader.style.display = 'block';
+  cloneButton.disabled = true;
+  cloneButton.classList.add('disabled');
+
   // Считываем данные с формы
-  const apiKeyFrom = document.getElementById('apiKeyFromEnv').value.trim();
-  const apiKeyTo = document.getElementById('apiKeyToEnv').value.trim();
-  const sourceWorkspaceId = document.getElementById('wpIdFromEnv').value.trim();
-  const targetWorkspaceId = document.getElementById('wpIdToEnv').value.trim();
+  const apiKeyFrom = document.getElementById('apiKeyFromAll').value.trim();
+  const apiKeyTo = document.getElementById('apiKeyToAll').value.trim();
+  const sourceWorkspaceId = document.getElementById('wpIdFromAll').value.trim();
+  const targetWorkspaceId = document.getElementById('wpIdToAll').value.trim();
 
-  await cloneEnvironments(
-    apiKeyFrom,
-    apiKeyTo,
-    sourceWorkspaceId,
-    targetWorkspaceId
-  );
-
-  environmentСlone.reset();
+  try {
+    await cloneEnvironments(
+      apiKeyFrom,
+      apiKeyTo,
+      sourceWorkspaceId,
+      targetWorkspaceId
+    );
+    environmentСlone.reset();
+  } finally {
+    loader.style.display = 'none';
+    cloneButton.disabled = false;
+    cloneButton.classList.remove('disabled');
+  }
 });
 
 // Получить список окружений в воркспейсе

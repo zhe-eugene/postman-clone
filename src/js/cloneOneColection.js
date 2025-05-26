@@ -12,20 +12,34 @@ const oneCollectionsForm = document.getElementById('collection-clone');
 
 oneCollectionsForm.addEventListener('submit', async event => {
   event.preventDefault();
+
+  const cloneButton = oneCollectionsForm.querySelector('.partner-fund-btn');
+  const loader = oneCollectionsForm.querySelector('.loader');
+
+  loader.style.display = 'block';
+  cloneButton.disabled = true;
+  cloneButton.classList.add('disabled');
+
   // Считываем данные с формы
   const apiKeyFrom = document.getElementById('apiKeyFromCol').value.trim();
   const apiKeyTo = document.getElementById('apiKeyToCol').value.trim();
   const collectionUid = document.getElementById('colIdFromCol').value.trim();
   const targetWorkspaceId = document.getElementById('wpIdToCol').value.trim();
 
-  await cloneSingleCollection(
-    apiKeyFrom,
-    apiKeyTo,
-    collectionUid,
-    targetWorkspaceId
-  );
+  try {
+    await cloneSingleCollection(
+      apiKeyFrom,
+      apiKeyTo,
+      collectionUid,
+      targetWorkspaceId
+    );
 
-  oneCollectionsForm.reset();
+    oneCollectionsForm.reset();
+  } finally {
+    loader.style.display = 'none';
+    cloneButton.disabled = false;
+    cloneButton.classList.remove('disabled');
+  }
 });
 
 // API keys accounts
