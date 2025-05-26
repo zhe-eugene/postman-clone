@@ -28,14 +28,14 @@ oneCollectionsForm.addEventListener('submit', async event => {
   oneCollectionsForm.reset();
 });
 
-// API ключи  аккаунтов
-//  apiKeyAccount1  источник
-//  apiKeyAccount2  цель
+// API keys accounts
+//  apiKeyAccount1  from
+//  apiKeyAccount2  to
 
-//  workspace ID  рабочего пространства
+//  workspace ID
 // targetWorkspaceId
 
-// UID коллекции
+// UID collection
 // collectionUid
 
 async function cloneSingleCollection(
