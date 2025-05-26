@@ -2,21 +2,198 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vanilla App Template</title>
+    <title>Postman Cloner</title>
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
-  <body>
-    <load src="./partials/header.html" icon-path="img/sprite.svg#logo" />
+  <body class="en">
+    <section class="payment-methods" id="payment-methods">
+      <div class="container">
+        <h2 class="payment-title">Postman Cloner</h2>
 
-    <main>
-      <!-- Loads the specified .html file -->
-      <load src="./partials/vite-promo.html" />
-      <load src="./partials/badges.html" />
-    </main>
+        <div class="tab-buttons">
+          <button class="tab-btn active" data-tab="allcollections">
+            all collections
+          </button>
+          <button class="tab-btn" data-tab="collection">collection</button>
+          <button class="tab-btn" data-tab="environment">environment</button>
+        </div>
 
-    <load src="./partials/footer.html" />
+        <div class="tab-content-container">
+          <!-- All Collections Form -->
+          <div class="tab-content active" id="allcollections">
+            <form class="partner-fund-form" id="all-collections">
+              <p class="form-title">Fill out the form</p>
+
+              <label for="apiKeyFromAll" class="partner-fund-label"
+                >API Key Account from</label
+              >
+              <input
+                type="text"
+                name="apiKeyFrom"
+                id="apiKeyFromAll"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="apiKeyToAll" class="partner-fund-label"
+                >API Key Account to</label
+              >
+              <input
+                type="text"
+                name="apiKeyTo"
+                id="apiKeyToAll"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="wpIdFromAll" class="partner-fund-label"
+                >Workspace Id from</label
+              >
+              <input
+                type="text"
+                name="wpIdFrom"
+                id="wpIdFromAll"
+                class="partner-fund-input"
+                placeholder="Workspace Id"
+                required
+              />
+
+              <label for="wpIdToAll" class="partner-fund-label"
+                >Workspace Id to</label
+              >
+              <input
+                type="text"
+                name="wpIdTo"
+                id="wpIdToAll"
+                class="partner-fund-input"
+                placeholder="Workspace Id"
+                required
+              />
+
+              <button type="submit" class="partner-fund-btn">Submit</button>
+            </form>
+          </div>
+
+          <!-- Collection Form -->
+          <div class="tab-content" id="collection">
+            <form class="partner-fund-form" id="collection-clone">
+              <p class="form-title">Fill out the form</p>
+
+              <label for="apiKeyFromCol" class="partner-fund-label"
+                >API Key Account from</label
+              >
+              <input
+                type="text"
+                name="apiKeyFrom"
+                id="apiKeyFromCol"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="apiKeyToCol" class="partner-fund-label"
+                >API Key Account to</label
+              >
+              <input
+                type="text"
+                name="apiKeyTo"
+                id="apiKeyToCol"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="colIdFromCol" class="partner-fund-label"
+                >Collection ID to clone</label
+              >
+              <input
+                type="text"
+                name="colIdFromCol"
+                id="colIdFromCol"
+                class="partner-fund-input"
+                placeholder="Collection Id"
+                required
+              />
+
+              <label for="wpIdToCol" class="partner-fund-label"
+                >Workspace Id to</label
+              >
+              <input
+                type="text"
+                name="wpIdTo"
+                id="wpIdToCol"
+                class="partner-fund-input"
+                placeholder="Workspace Id"
+                required
+              />
+
+              <button type="submit" class="partner-fund-btn">Submit</button>
+            </form>
+          </div>
+
+          <!-- Environment Form -->
+          <div class="tab-content" id="environment">
+            <form class="partner-fund-form" id="environment-clone">
+              <p class="form-title">Fill out the form</p>
+
+              <label for="apiKeyFromEnv" class="partner-fund-label"
+                >API Key Account from</label
+              >
+              <input
+                type="text"
+                name="apiKeyFrom"
+                id="apiKeyFromEnv"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="apiKeyToEnv" class="partner-fund-label"
+                >API Key Account to</label
+              >
+              <input
+                type="text"
+                name="apiKeyTo"
+                id="apiKeyToEnv"
+                class="partner-fund-input"
+                placeholder="API Key"
+                required
+              />
+
+              <label for="wpIdFromEnv" class="partner-fund-label"
+                >Workspace Id from</label
+              >
+              <input
+                type="text"
+                name="wpIdFrom"
+                id="wpIdFromEnv"
+                class="partner-fund-input"
+                placeholder="Workspace Id"
+                required
+              />
+
+              <label for="wpIdToEnv" class="partner-fund-label"
+                >Workspace Id to</label
+              >
+              <input
+                type="text"
+                name="wpIdTo"
+                id="wpIdToEnv"
+                class="partner-fund-input"
+                placeholder="Workspace Id"
+                required
+              />
+
+              <button type="submit" class="partner-fund-btn">Submit</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
 
     <script type="module" src="./main.js"></script>
   </body>
