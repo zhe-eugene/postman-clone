@@ -20,10 +20,10 @@ environmentСlone.addEventListener('submit', async event => {
   cloneButton.classList.add('disabled');
 
   // Считываем данные с формы
-  const apiKeyFrom = document.getElementById('apiKeyFromAll').value.trim();
-  const apiKeyTo = document.getElementById('apiKeyToAll').value.trim();
-  const sourceWorkspaceId = document.getElementById('wpIdFromAll').value.trim();
-  const targetWorkspaceId = document.getElementById('wpIdToAll').value.trim();
+  const apiKeyFrom = document.getElementById('apiKeyFromEnv').value.trim();
+  const apiKeyTo = document.getElementById('apiKeyToEnv').value.trim();
+  const sourceWorkspaceId = document.getElementById('wpIdFromEnv').value.trim();
+  const targetWorkspaceId = document.getElementById('wpIdToEnv').value.trim();
 
   try {
     await cloneEnvironments(
